@@ -12,6 +12,22 @@ APIClientSchema = {
       type: 'string'
       description: 'hashed version of a secret key that is required for API calls'
     }
+    permissions: {
+      type: 'object'
+      description: 'permissions assigned to the API client'
+      properties: {
+        manageLicensesViaUI: { type: 'boolean', default: true}
+        manageLicensesViaAPI: { type: 'boolean', default: true}
+        revokeLicensesViaUI: { type: 'boolean', default: false}
+        revokeLicensesViaAPI : { type: 'boolean', default: false}
+        manageSubscriptionViaAPI : { type: 'boolean', default: false}
+        revokeSubscriptionViaAPI : { type: 'boolean', default: false}
+      }
+    }
+    minimumLicenseDays : {
+      type: 'integer'
+      default: 365
+    }
   }
 }
 
